@@ -1,0 +1,150 @@
+{
+  "per_budget": [
+    {
+      "budget": 0,
+      "empirical_mean": 0.25,
+      "beta_1_1": 0.25,
+      "weighted_delta": 0.0
+    },
+    {
+      "budget": 1,
+      "empirical_mean": 0.33635354475405704,
+      "beta_1_1": 0.22322895936246348,
+      "weighted_delta": -0.022624917078318714
+    },
+    {
+      "budget": 3,
+      "empirical_mean": 0.21576345411700681,
+      "beta_1_1": 0.1974620056068806,
+      "weighted_delta": -0.0036602897020252437
+    },
+    {
+      "budget": 7,
+      "empirical_mean": 0.1809583766142478,
+      "beta_1_1": 0.17829229212099823,
+      "weighted_delta": -0.000533216898649913
+    },
+    {
+      "budget": 15,
+      "empirical_mean": 0.16979130172292892,
+      "beta_1_1": 0.16929985142649617,
+      "weighted_delta": -9.829005928654877e-05
+    },
+    {
+      "budget": 31,
+      "empirical_mean": 0.1663747726589826,
+      "beta_1_1": 0.16616055738557844,
+      "weighted_delta": -2.1421527340415025e-05
+    }
+  ],
+  "paired_mean_alc_delta": -0.026938135265620833,
+  "budget_1_fraction_of_net_improvement": 0.8398843073296628,
+  "by_benchmark": [
+    {
+      "benchmark": "multi_swebench",
+      "pairs": 82,
+      "improved": 54,
+      "worsened": 28,
+      "tied": 0
+    },
+    {
+      "benchmark": "researchcodebench",
+      "pairs": 31,
+      "improved": 27,
+      "worsened": 4,
+      "tied": 0
+    }
+  ],
+  "by_seed": {
+    "20261016": -0.029293399600086024,
+    "20261017": -0.027236153442315714,
+    "20261018": -0.02428485275446078
+  },
+  "largest_losses": [
+    {
+      "pair": "0534b6e31ed8b35d06bba16910d573ddff080f92d9d7e6ae168025f87e705bf4",
+      "benchmark": "researchcodebench",
+      "subject": {
+        "access_date": "",
+        "harness": "",
+        "harness_version": "",
+        "normalized_name": "Mistral Codestral Mamba",
+        "provider": "Mistral",
+        "reasoning_effort": "",
+        "release_date": "2024-07-16",
+        "subject_features_extra": ""
+      },
+      "mean_alc_delta": 0.02898510510543907,
+      "evaluation_success_rate": 0.015625
+    },
+    {
+      "pair": "c624aacfb2c87b7d04fa15ed8b1717ba3c6e1e40a79ad8150a6bcfea9991c791",
+      "benchmark": "multi_swebench",
+      "subject": {
+        "access_date": "2025-03-29",
+        "harness": "MopenHands",
+        "harness_version": "",
+        "normalized_name": "ByteDance Doubao 1.5 Pro",
+        "provider": "ByteDance",
+        "reasoning_effort": "",
+        "release_date": "2025-01-22",
+        "subject_features_extra": ""
+      },
+      "mean_alc_delta": 0.028048132057371482,
+      "evaluation_success_rate": 0.025000000000000005
+    },
+    {
+      "pair": "ebb25b8a7b618a0b91a300300f25a64f3943338c408cb507951c4337399ff740",
+      "benchmark": "multi_swebench",
+      "subject": {
+        "access_date": "2025-03-29",
+        "harness": "MopenHands",
+        "harness_version": "",
+        "normalized_name": "Alibaba Qwen2.5 72B",
+        "provider": "Alibaba",
+        "reasoning_effort": "",
+        "release_date": "2024-09-19",
+        "subject_features_extra": ""
+      },
+      "mean_alc_delta": 0.026886619395869477,
+      "evaluation_success_rate": 0.023346303501945526
+    },
+    {
+      "pair": "7baf059b231bc7ae24a0a0718a8327abb4417145ea89733b0606d357c681016f",
+      "benchmark": "multi_swebench",
+      "subject": {
+        "access_date": "2025-03-29",
+        "harness": "MSWE-agent",
+        "harness_version": "",
+        "normalized_name": "DeepSeek R1",
+        "provider": "DeepSeek",
+        "reasoning_effort": "",
+        "release_date": "2025-01-20",
+        "subject_features_extra": ""
+      },
+      "mean_alc_delta": 0.025927723715210266,
+      "evaluation_success_rate": 0.03905160390516039
+    },
+    {
+      "pair": "47045ea07efcbd97668ebed1a7151dad908c18f5a45e57fccfb328363237cd8d",
+      "benchmark": "multi_swebench",
+      "subject": {
+        "access_date": "2025-03-29",
+        "harness": "MSWE-agent",
+        "harness_version": "",
+        "normalized_name": "OpenAI GPT-4o",
+        "provider": "OpenAI",
+        "reasoning_effort": "",
+        "release_date": "2024-05-13",
+        "subject_features_extra": ""
+      },
+      "mean_alc_delta": 0.024444331138495423,
+      "evaluation_success_rate": 0.03756708407871199
+    }
+  ],
+  "acquisition_pool_fraction_range": [
+    0.35377358490566035,
+    0.6886792452830188
+  ],
+  "interpretation": "Descriptive exploratory analysis; pairs share benchmarks and seeds share a fixed evaluation pool."
+}

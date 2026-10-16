@@ -1,0 +1,29 @@
+{
+  "starting_kit_url": "https://www.codabench.org/datasets/download/4ae12cd5-cc62-4c11-bad5-d9a51381b39b/",
+  "starting_kit_sha256": "a870970a7b9e82385929db37435aac29e3f0ee648cce7df143787b88ac4770f6",
+  "starter_kit_file_sha256": {
+    "README.md": "719966f4a830eb29963c25f6a1617ad5d6eea916e2d52fb8de1e600122a7986b",
+    "tools/check_submission_zip.py": "49e8a666df64671e1d32b262647b9525dfe58c93596f034289d264016ddd9eda",
+    "tools/prediction_workers.py": "3bacbccf8d711309e9d7735311ba7e0bc003025086ed3cc311044e478d6f0b48",
+    "tools/run_smoke_test.py": "db0fd19b45d982db510b7ac78e588a140b77c287ffc023e23d1731cda9ed8fc2",
+    "tools/streaming_ingestion.py": "682602ea065c5fec1731c223faae3514f42d764d96115b56ea3c8019832bab19"
+  },
+  "predictors": [
+    "empirical_mean",
+    "beta_1_1"
+  ],
+  "zip_checks": "PASS (both)",
+  "sequential_smoke": "PASS (both)",
+  "official_mean_unit_tests": 4,
+  "parallel_smoke": "PASS on Ubuntu WSL; requested concurrency 4, actual workers 2 for 2 sample inputs",
+  "hosted_evaluation": false,
+  "archive_extraction": "Both archives tested from fresh extracted directories on Linux and Windows",
+  "windows_parallel_limit": "Official POSIX helper fails with pass_fds not supported on Windows",
+  "linux_python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "linux_platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "windows_python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+  "candidate_zip_sha256": "881e3bb205fd02a4d6657549b102e44501322d6868c0e0bcdb2f4f1141e1d9a0",
+  "candidate_zip_matches_across_platforms": true,
+  "runner_sha256": "91a24e25f75466cf688f7b7c7f6779391b1a3ceb47baa5f41d65f7be6b424691",
+  "hosted_image_tested": false
+}

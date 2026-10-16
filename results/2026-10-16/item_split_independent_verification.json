@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pair_seed_method_records_verified": 1017,
+  "checks": [
+    "data hashes",
+    "row-wise Brier recomputation",
+    "ALC weights",
+    "label budgets",
+    "disjoint item pools",
+    "response coverage",
+    "audited lexical-cluster separation when enabled"
+  ],
+  "limitations": "Lexical audit does not establish semantic duplicate absence or exact official platform trajectories"
+}

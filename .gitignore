@@ -1,0 +1,9 @@
+__pycache__/
+data/
+dist/
+runs/
+*.token
+.env
+.deps/
+local/
+upstream/

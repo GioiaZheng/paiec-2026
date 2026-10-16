@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "comparison": "Exact parsed-summary equality after evaluator extension",
+  "original_summary_sha256": "ecbeb647fe49d5383b59fff562b206f459be9dc127a0fd292983d6c3d14b776e",
+  "rerun_summary_sha256": "ecbeb647fe49d5383b59fff562b206f459be9dc127a0fd292983d6c3d14b776e",
+  "original_source_sha256": {
+    "evaluate_pilot.py": "94f6461b2bf041e7a3df2c8f7a780398d07386cdf321676e346207c3c8dab72c",
+    "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+    "shrinkage\\model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+    "upstream\\empirical_mean\\model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+  },
+  "rerun_source_sha256": {
+    "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+    "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+    "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+    "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+    "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+  }
+}

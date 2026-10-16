@@ -1,0 +1,47 @@
+{
+  "status": "EXPLORATORY_PUBLIC_DATA_PILOT",
+  "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+  "seeds": [
+    20261016,
+    20261017,
+    20261018
+  ],
+  "budgets": [
+    0,
+    1,
+    3,
+    7,
+    15,
+    31
+  ],
+  "weights": [
+    0.1,
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.1
+  ],
+  "fit": false,
+  "tuning": false,
+  "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+  "pyarrow": "23.0.1",
+  "gpu_used": false,
+  "split_unit": "item",
+  "near_duplicate_threshold": 0.9,
+  "limitations": [
+    "Only two software benchmarks; not a reserved confirmatory holdout",
+    "Lexical duplicate check does not detect semantic paraphrases",
+    "Cluster-level split is approximately 50/50 by items, exact 50/50 by clusters",
+    "Random acquisition is distribution-compatible; anonymous platform IDs prevent exact trajectory matching",
+    "No uncertainty intervals with only two benchmarks",
+    "ResearchCodeBench upstream license recorded as unknown; no data redistribution",
+    "Official sequential smoke checks pass; parallel helper is POSIX-only and failed on Windows"
+  ],
+  "source_sha256": {
+    "evaluate_pilot.py": "94f6461b2bf041e7a3df2c8f7a780398d07386cdf321676e346207c3c8dab72c",
+    "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+    "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+    "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+  }
+}

@@ -1,0 +1,579 @@
+{
+  "status": "LOCAL_VALIDATION_ONLY",
+  "official_submission": false,
+  "protocol_sha256": "10362b8bcf536482ea2e4f08f641258bfdfe35fc9819a51193f16cff26bb3e00",
+  "freeze": {
+    "frozen_at_utc": "2026-10-16T10:30:54.142645+00:00",
+    "protocol_sha256": "10362b8bcf536482ea2e4f08f641258bfdfe35fc9819a51193f16cff26bb3e00",
+    "outcomes_read": false,
+    "metadata_inspected": [
+      "name",
+      "release",
+      "response_type",
+      "granularity",
+      "license",
+      "paper_url",
+      "n_items",
+      "n_subjects"
+    ]
+  },
+  "data_manifest": {
+    "data/real_webagents/benchmarks.parquet": {
+      "bytes": 16703,
+      "sha256": "747b4a61dabe1fbc9f212dfff3cb7afb3a0b7480e6da1eb5e001ea30d60b0c9a",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/real_webagents/formatted_tables/benchmarks.parquet"
+    },
+    "data/real_webagents/items.parquet": {
+      "bytes": 48588,
+      "sha256": "5908db1f903c608e00911d50ca7ec0fa0e1b5bf4a09365d4ad52e0e1fde8f136",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/real_webagents/formatted_tables/items.parquet"
+    },
+    "data/real_webagents/subjects.parquet": {
+      "bytes": 8365,
+      "sha256": "e563ff232af0d2241220e9857cdc65c64b67b9301aae594677a60ff3308e7fa5",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/real_webagents/formatted_tables/subjects.parquet"
+    },
+    "data/real_webagents/responses.parquet": {
+      "bytes": 94908,
+      "sha256": "56d1fca0b984a30701f165f550e979d96c71b79af3b11a482e4eba5771065213",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/real_webagents/formatted_tables/responses.parquet"
+    }
+  },
+  "audit": {
+    "real_webagents": {
+      "license": "unknown",
+      "items": 233,
+      "subjects": 33,
+      "visible_subject_groups": 33,
+      "responses": 4449,
+      "missing_grades_excluded": 0,
+      "empty_item_content": 0,
+      "normalized_text_duplicate_items": 0,
+      "test_condition_counts": {
+        "None": 4449
+      },
+      "eligible_pairs": 26,
+      "repeated_response_cells": 334,
+      "cells_with_disagreeing_outcomes": 91
+    },
+    "cross_benchmark_normalized_exact_hash_overlap": 0,
+    "near_duplicates": {
+      "threshold": 0.9,
+      "shingle_width": 5,
+      "items": 233,
+      "candidate_comparisons": 0,
+      "matched_pairs": 0,
+      "duplicate_clusters": 0,
+      "largest_cluster": 1,
+      "scope": "Lexical overlap only; does not detect arbitrary paraphrases or semantic duplicates",
+      "cross_benchmark_pairs": 0
+    },
+    "reference_answer_policy": "Excluded grading_criterion, verifier, asset_manifest and traces from predictor inputs"
+  },
+  "split_comparison": {
+    "identical_full_trajectories": true,
+    "identical_scores": true,
+    "independent_replications": 1,
+    "interpretation": "No lexical matches were found; both designs use the same pools, labels and predictions."
+  },
+  "designs": {
+    "item": {
+      "config": {
+        "status": "FIXED_LOCAL_VALIDATION",
+        "benchmarks": [
+          "real_webagents"
+        ],
+        "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+        "seeds": [
+          20261016,
+          20261017,
+          20261018
+        ],
+        "budgets": [
+          0,
+          1,
+          3,
+          7,
+          15,
+          31
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ],
+        "fit": false,
+        "tuning": false,
+        "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+        "pyarrow": "23.0.1",
+        "gpu_used": false,
+        "split_unit": "item",
+        "near_duplicate_threshold": 0.9,
+        "limitations": [
+          "Limited public benchmarks; not an official private test",
+          "Lexical duplicate check does not detect semantic paraphrases or translations",
+          "Near/exact splits halve cluster counts, not item counts; item split halves item counts",
+          "Random acquisition is distribution-compatible; anonymous platform IDs prevent exact trajectory matching",
+          "No benchmark-level uncertainty intervals; seeds share the evaluation pool",
+          "Source data are not redistributed; per-benchmark licenses are recorded in audit.json"
+        ],
+        "source_sha256": {
+          "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+          "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+          "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+          "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+          "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+        },
+        "protocol_sha256": "10362b8bcf536482ea2e4f08f641258bfdfe35fc9819a51193f16cff26bb3e00"
+      },
+      "summary": [
+        {
+          "benchmark": "real_webagents",
+          "method": "constant_0.5",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.25,
+          "briers": [
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "benchmark": "real_webagents",
+          "method": "empirical_mean",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.24594631068488196,
+          "briers": [
+            0.25,
+            0.3848686271941017,
+            0.24778001350747145,
+            0.19682603038308907,
+            0.18464817074064938,
+            0.1812174231981962
+          ]
+        },
+        {
+          "benchmark": "real_webagents",
+          "method": "beta_1_1",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.21036233173011235,
+          "briers": [
+            0.25,
+            0.23940065350914502,
+            0.22012099955747436,
+            0.19319906374344273,
+            0.1838221445611828,
+            0.18053759455863352
+          ]
+        }
+      ],
+      "analysis": {
+        "per_budget": [
+          {
+            "budget": 0,
+            "empirical_mean": 0.25,
+            "beta_1_1": 0.25,
+            "weighted_delta": 0.0
+          },
+          {
+            "budget": 1,
+            "empirical_mean": 0.3848686271941017,
+            "beta_1_1": 0.23940065350914502,
+            "weighted_delta": -0.029093594736991336
+          },
+          {
+            "budget": 3,
+            "empirical_mean": 0.24778001350747145,
+            "beta_1_1": 0.22012099955747436,
+            "weighted_delta": -0.005531802789999419
+          },
+          {
+            "budget": 7,
+            "empirical_mean": 0.19682603038308907,
+            "beta_1_1": 0.19319906374344273,
+            "weighted_delta": -0.0007253933279292691
+          },
+          {
+            "budget": 15,
+            "empirical_mean": 0.18464817074064938,
+            "beta_1_1": 0.1838221445611828,
+            "weighted_delta": -0.0001652052358933176
+          },
+          {
+            "budget": 31,
+            "empirical_mean": 0.1812174231981962,
+            "beta_1_1": 0.18053759455863352,
+            "weighted_delta": -6.798286395626741e-05
+          }
+        ],
+        "paired_mean_alc_delta": -0.03558397895476961,
+        "budget_1_fraction_of_net_improvement": 0.8176037529128451,
+        "by_benchmark": [
+          {
+            "benchmark": "real_webagents",
+            "pairs": 26,
+            "improved": 22,
+            "worsened": 4,
+            "tied": 0
+          }
+        ],
+        "by_seed": {
+          "20261016": -0.032960514103167804,
+          "20261017": -0.041207320342290944,
+          "20261018": -0.03258410241885008
+        },
+        "largest_losses": [
+          {
+            "pair": "1764e275bac3708fdce155406667263f4c2d190504742dcb06ef3d4f107716fe",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Meta Llama 3.1 8B",
+              "provider": "Meta",
+              "reasoning_effort": "",
+              "release_date": "2024-07-23",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.03841037023334109,
+            "evaluation_success_rate": 0.0
+          },
+          {
+            "pair": "11f367e2c19a509c1f0575805d275b94cd04501a6bfbc487be4bbefffa26efdb",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Test",
+              "provider": "Unknown",
+              "reasoning_effort": "",
+              "release_date": "",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.025384044351491854,
+            "evaluation_success_rate": 0.03571428571428571
+          },
+          {
+            "pair": "395366bfd2b3b584b683028b5690eb411175ce2392fa74eb04b548a39cfd89c0",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Alibaba Qwen2.5-VL 32B",
+              "provider": "Alibaba",
+              "reasoning_effort": "",
+              "release_date": "2025-03-24",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.023335683588567347,
+            "evaluation_success_rate": 0.03571428571428571
+          },
+          {
+            "pair": "4c446675bf768303b9a276219f6d7e6c9d24567aedaddac4f4098c3696c29664",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "OpenAI CUA",
+              "provider": "OpenAI",
+              "reasoning_effort": "",
+              "release_date": "2025-01-23",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.011197147403247223,
+            "evaluation_success_rate": 0.08928571428571429
+          }
+        ],
+        "acquisition_pool_fraction_range": [
+          0.5,
+          0.5056179775280899
+        ],
+        "interpretation": "Descriptive exploratory analysis; pairs share benchmarks and seeds share a fixed evaluation pool."
+      },
+      "verification": {
+        "status": "PASS",
+        "pair_seed_method_records_verified": 234,
+        "checks": [
+          "data hashes",
+          "row-wise Brier recomputation",
+          "ALC weights",
+          "label budgets",
+          "disjoint item pools",
+          "response coverage",
+          "audited lexical/source-group separation when enabled"
+        ],
+        "limitations": "Lexical audit does not establish semantic duplicate absence or exact official platform trajectories"
+      },
+      "eligible_source_item_range": [
+        89,
+        233
+      ]
+    },
+    "near": {
+      "config": {
+        "status": "FIXED_LOCAL_VALIDATION",
+        "benchmarks": [
+          "real_webagents"
+        ],
+        "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+        "seeds": [
+          20261016,
+          20261017,
+          20261018
+        ],
+        "budgets": [
+          0,
+          1,
+          3,
+          7,
+          15,
+          31
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ],
+        "fit": false,
+        "tuning": false,
+        "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+        "pyarrow": "23.0.1",
+        "gpu_used": false,
+        "split_unit": "near",
+        "near_duplicate_threshold": 0.9,
+        "limitations": [
+          "Limited public benchmarks; not an official private test",
+          "Lexical duplicate check does not detect semantic paraphrases or translations",
+          "Near/exact splits halve cluster counts, not item counts; item split halves item counts",
+          "Random acquisition is distribution-compatible; anonymous platform IDs prevent exact trajectory matching",
+          "No benchmark-level uncertainty intervals; seeds share the evaluation pool",
+          "Source data are not redistributed; per-benchmark licenses are recorded in audit.json"
+        ],
+        "source_sha256": {
+          "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+          "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+          "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+          "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+          "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+        },
+        "protocol_sha256": "10362b8bcf536482ea2e4f08f641258bfdfe35fc9819a51193f16cff26bb3e00"
+      },
+      "summary": [
+        {
+          "benchmark": "real_webagents",
+          "method": "constant_0.5",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.25,
+          "briers": [
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "benchmark": "real_webagents",
+          "method": "empirical_mean",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.24594631068488196,
+          "briers": [
+            0.25,
+            0.3848686271941017,
+            0.24778001350747145,
+            0.19682603038308907,
+            0.18464817074064938,
+            0.1812174231981962
+          ]
+        },
+        {
+          "benchmark": "real_webagents",
+          "method": "beta_1_1",
+          "pairs": 26,
+          "seed_repetitions": 3,
+          "alc": 0.21036233173011235,
+          "briers": [
+            0.25,
+            0.23940065350914502,
+            0.22012099955747436,
+            0.19319906374344273,
+            0.1838221445611828,
+            0.18053759455863352
+          ]
+        }
+      ],
+      "analysis": {
+        "per_budget": [
+          {
+            "budget": 0,
+            "empirical_mean": 0.25,
+            "beta_1_1": 0.25,
+            "weighted_delta": 0.0
+          },
+          {
+            "budget": 1,
+            "empirical_mean": 0.3848686271941017,
+            "beta_1_1": 0.23940065350914502,
+            "weighted_delta": -0.029093594736991336
+          },
+          {
+            "budget": 3,
+            "empirical_mean": 0.24778001350747145,
+            "beta_1_1": 0.22012099955747436,
+            "weighted_delta": -0.005531802789999419
+          },
+          {
+            "budget": 7,
+            "empirical_mean": 0.19682603038308907,
+            "beta_1_1": 0.19319906374344273,
+            "weighted_delta": -0.0007253933279292691
+          },
+          {
+            "budget": 15,
+            "empirical_mean": 0.18464817074064938,
+            "beta_1_1": 0.1838221445611828,
+            "weighted_delta": -0.0001652052358933176
+          },
+          {
+            "budget": 31,
+            "empirical_mean": 0.1812174231981962,
+            "beta_1_1": 0.18053759455863352,
+            "weighted_delta": -6.798286395626741e-05
+          }
+        ],
+        "paired_mean_alc_delta": -0.03558397895476961,
+        "budget_1_fraction_of_net_improvement": 0.8176037529128451,
+        "by_benchmark": [
+          {
+            "benchmark": "real_webagents",
+            "pairs": 26,
+            "improved": 22,
+            "worsened": 4,
+            "tied": 0
+          }
+        ],
+        "by_seed": {
+          "20261016": -0.032960514103167804,
+          "20261017": -0.041207320342290944,
+          "20261018": -0.03258410241885008
+        },
+        "largest_losses": [
+          {
+            "pair": "1764e275bac3708fdce155406667263f4c2d190504742dcb06ef3d4f107716fe",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Meta Llama 3.1 8B",
+              "provider": "Meta",
+              "reasoning_effort": "",
+              "release_date": "2024-07-23",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.03841037023334109,
+            "evaluation_success_rate": 0.0
+          },
+          {
+            "pair": "11f367e2c19a509c1f0575805d275b94cd04501a6bfbc487be4bbefffa26efdb",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Test",
+              "provider": "Unknown",
+              "reasoning_effort": "",
+              "release_date": "",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.025384044351491854,
+            "evaluation_success_rate": 0.03571428571428571
+          },
+          {
+            "pair": "395366bfd2b3b584b683028b5690eb411175ce2392fa74eb04b548a39cfd89c0",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "Alibaba Qwen2.5-VL 32B",
+              "provider": "Alibaba",
+              "reasoning_effort": "",
+              "release_date": "2025-03-24",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.023335683588567347,
+            "evaluation_success_rate": 0.03571428571428571
+          },
+          {
+            "pair": "4c446675bf768303b9a276219f6d7e6c9d24567aedaddac4f4098c3696c29664",
+            "benchmark": "real_webagents",
+            "subject": {
+              "access_date": "",
+              "harness": "",
+              "harness_version": "",
+              "normalized_name": "OpenAI CUA",
+              "provider": "OpenAI",
+              "reasoning_effort": "",
+              "release_date": "2025-01-23",
+              "subject_features_extra": ""
+            },
+            "mean_alc_delta": 0.011197147403247223,
+            "evaluation_success_rate": 0.08928571428571429
+          }
+        ],
+        "acquisition_pool_fraction_range": [
+          0.5,
+          0.5056179775280899
+        ],
+        "interpretation": "Descriptive exploratory analysis; pairs share benchmarks and seeds share a fixed evaluation pool."
+      },
+      "verification": {
+        "status": "PASS",
+        "pair_seed_method_records_verified": 234,
+        "checks": [
+          "data hashes",
+          "row-wise Brier recomputation",
+          "ALC weights",
+          "label budgets",
+          "disjoint item pools",
+          "response coverage",
+          "audited lexical/source-group separation when enabled"
+        ],
+        "limitations": "Lexical audit does not establish semantic duplicate absence or exact official platform trajectories"
+      },
+      "eligible_source_item_range": [
+        89,
+        233
+      ]
+    }
+  },
+  "source_sha256": {
+    "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+    "verify_pilot.py": "68ac7d5790e0aeef5c670e973419c8c10e54ca7156cea7da7b64d626b2e9a50a",
+    "analyze_pilot.py": "9dc69067c09138cf0db6832d83ad76a3bd1b75b7ceeb6641cebabfd1c4f5321d",
+    "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+    "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+    "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91"
+  }
+}

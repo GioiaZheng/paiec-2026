@@ -1,0 +1,137 @@
+[
+  {
+    "benchmark": "multi_swebench",
+    "method": "constant_0.5",
+    "pairs": 82,
+    "seed_repetitions": 3,
+    "alc": 0.25,
+    "briers": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  },
+  {
+    "benchmark": "multi_swebench",
+    "method": "empirical_mean",
+    "pairs": 82,
+    "seed_repetitions": 3,
+    "alc": 0.19819039847661668,
+    "briers": [
+      0.25,
+      0.2858983689100537,
+      0.18872480118944154,
+      0.16343474127520757,
+      0.1534799235085053,
+      0.14882831499975052
+    ]
+  },
+  {
+    "benchmark": "multi_swebench",
+    "method": "beta_1_1",
+    "pairs": 82,
+    "seed_repetitions": 3,
+    "alc": 0.1798098796473814,
+    "briers": [
+      0.25,
+      0.20641056741446234,
+      0.1775167235320931,
+      0.16260436000331346,
+      0.1531258465555725,
+      0.14878380146293102
+    ]
+  },
+  {
+    "benchmark": "researchcodebench",
+    "method": "constant_0.5",
+    "pairs": 31,
+    "seed_repetitions": 3,
+    "alc": 0.25,
+    "briers": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  },
+  {
+    "benchmark": "researchcodebench",
+    "method": "empirical_mean",
+    "pairs": 31,
+    "seed_repetitions": 3,
+    "alc": 0.2699855257542156,
+    "briers": [
+      0.25,
+      0.41336985189693654,
+      0.2557764703230315,
+      0.231240761672898,
+      0.2181596447329862,
+      0.21276180029045114
+    ]
+  },
+  {
+    "benchmark": "researchcodebench",
+    "method": "beta_1_1",
+    "pairs": 31,
+    "seed_repetitions": 3,
+    "alc": 0.2303305878703105,
+    "briers": [
+      0.25,
+      0.2489010617434233,
+      0.2318888212619193,
+      0.22352842461721886,
+      0.21632334864417288,
+      0.21202256616963638
+    ]
+  },
+  {
+    "benchmark": "ALL_PAIRS",
+    "method": "constant_0.5",
+    "pairs": 113,
+    "seed_repetitions": 3,
+    "alc": 0.25,
+    "briers": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  },
+  {
+    "benchmark": "ALL_PAIRS",
+    "method": "empirical_mean",
+    "pairs": 113,
+    "seed_repetitions": 3,
+    "alc": 0.2178864068448075,
+    "briers": [
+      0.25,
+      0.32086842176486224,
+      0.2071195068809574,
+      0.18203639288873324,
+      0.17122391782672572,
+      0.16636758972551793
+    ]
+  },
+  {
+    "benchmark": "ALL_PAIRS",
+    "method": "beta_1_1",
+    "pairs": 113,
+    "seed_repetitions": 3,
+    "alc": 0.1936695429651761,
+    "briers": [
+      0.25,
+      0.21806725169939856,
+      0.19243296273231092,
+      0.17931804144606625,
+      0.1704632143851885,
+      0.16613248912583248
+    ]
+  }
+]

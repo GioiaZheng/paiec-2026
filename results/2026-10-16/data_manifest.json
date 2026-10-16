@@ -1,0 +1,42 @@
+{
+  "data/multi_swebench/benchmarks.parquet": {
+    "bytes": 17027,
+    "sha256": "ad1c8d39f85ff0e1a2fc82c7293a6d4f3751d912e46cbf2c6bbb193b1d9c6416",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/multi_swebench/formatted_tables/benchmarks.parquet"
+  },
+  "data/multi_swebench/items.parquet": {
+    "bytes": 59055510,
+    "sha256": "21cc67f8c5811cfff671ae0dae34056aadd1f876918c64fce4a4a3b3a28c27b0",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/multi_swebench/formatted_tables/items.parquet"
+  },
+  "data/multi_swebench/responses.parquet": {
+    "bytes": 1222393,
+    "sha256": "3925964852cede82d958b828f7eaa5f3cc2923a7b8f0e63e783b78a44c028f60",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/multi_swebench/formatted_tables/responses.parquet"
+  },
+  "data/multi_swebench/subjects.parquet": {
+    "bytes": 9456,
+    "sha256": "06eca4d34e9201ff58c62923a7d76dc315cb9748b308aab21e43e111e3faac49",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/multi_swebench/formatted_tables/subjects.parquet"
+  },
+  "data/researchcodebench/benchmarks.parquet": {
+    "bytes": 16499,
+    "sha256": "935efcdc5dac86f2f292f0cd8c772600595dc09cf81adff20bb43e271c21ae30",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/researchcodebench/formatted_tables/benchmarks.parquet"
+  },
+  "data/researchcodebench/items.parquet": {
+    "bytes": 8928605,
+    "sha256": "3aee135afa6b206cbce8867beca681811d95579db34a0c0eed1822d8c6b01268",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/researchcodebench/formatted_tables/items.parquet"
+  },
+  "data/researchcodebench/responses.parquet": {
+    "bytes": 137904,
+    "sha256": "318c067d86f35dd057e6b4d33114d4ae46447c9ef91e1b4bddba7667fc8c0375",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/researchcodebench/formatted_tables/responses.parquet"
+  },
+  "data/researchcodebench/subjects.parquet": {
+    "bytes": 8321,
+    "sha256": "c8dbb5ac589749270ddea2be6e456ea22b991d5ffc5107fd80d0865a77e94b3a",
+    "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/researchcodebench/formatted_tables/subjects.parquet"
+  }
+}

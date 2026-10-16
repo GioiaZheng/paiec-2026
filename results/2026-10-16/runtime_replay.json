@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "kind": "PUBLIC_DATA_ARCHIVE_REPLAY",
+  "official_submission": false,
+  "hosted_image_tested": false,
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "concurrency": 4,
+  "groups": 6,
+  "source_items": 962,
+  "benchmarks": [
+    "multi_swebench",
+    "real_webagents",
+    "researchcodebench"
+  ],
+  "fixture_sha256": "e650e0a7a9a92f4ef594dc1e0626a5f836898a0dbdcc1f1c8afe20f6b1e8b190",
+  "archive_sha256": {
+    "empirical_mean": "b5fe48b45bec17a5996e135b8d781aa952fa1a425d5bf46a813a73ad7c02919d",
+    "beta_1_1": "881e3bb205fd02a4d6657549b102e44501322d6868c0e0bcdb2f4f1141e1d9a0"
+  },
+  "source_run_sha256": {
+    "pilot-20261016T094811723234Z": {
+      "config.json": "9e38da801d0261837e60233dea5136f7c7d508b10da34bb0a65f1e5fdd40e8fe",
+      "scores.json": "19e6068bcfd67a2b92217318081f8d6e7a8c191a62e4b9ca4d4658cef64998de",
+      "trajectories.json": "db3f9e706051a07cbad239f4705cff6d3a60d009aefd4ea0e2aed4cb900ba961",
+      "independent_verification.json": "84be0abfddb041243574548718824caf8ffb0c986d58333eb2e4b257e6b5445c"
+    },
+    "pilot-20261016T103126523131Z": {
+      "config.json": "ce90798ee1ffe7991c25e9e1a5f6e66c1191852845b5cf8166ecf50318c3db93",
+      "scores.json": "5a3e66170fe48ede228bda6b668102ce4fde32d44499be2f624d7549661b6eaf",
+      "trajectories.json": "48bc697a3998aa43efa1ceb7ddebe5e6aa153e09dcce7d9d5791ac1a18f65e82",
+      "independent_verification.json": "c77c8dc18d1b1c46dbe9043ca49fdc0c4314929340bd9a7a57584e25f6f72ad7"
+    }
+  },
+  "selection": "Round-robin benchmarks; prefer groups with repeated evaluation response rows, then pair hash; skip whole groups that do not fit. Uses counts only, not outcomes or performance metrics.",
+  "source_sha256": {
+    "replay_submission.py": "6b77b0a637d7e663bd7626083ca24c40e6d28cdc1eca0e6861a9ac961eccc2e7",
+    "starting_kit/tools/prediction_workers.py": "3bacbccf8d711309e9d7735311ba7e0bc003025086ed3cc311044e478d6f0b48"
+  },
+  "checks": [
+    "All row probabilities match saved pilot",
+    "All per-group Brier/ALC match saved pilot",
+    "Mixed-group evidence at all six budgets",
+    "Fresh official workers per checkpoint",
+    "Repeated-input reuse",
+    "Extracted archive matches evaluated predictor"
+  ],
+  "limitations": [
+    "Integration fixture only; neither new validation data nor official feedback.",
+    "Does not simulate private group selection, streaming acquisition or hosted sandbox/resource allocation."
+  ],
+  "checkpoints": [
+    {
+      "method": "empirical_mean",
+      "budget": 0,
+      "mixed_labels": 0,
+      "response_rows": 760,
+      "seconds": 0.42511367199999484,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "empirical_mean",
+      "budget": 1,
+      "mixed_labels": 6,
+      "response_rows": 760,
+      "seconds": 0.4044183200000049,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "empirical_mean",
+      "budget": 3,
+      "mixed_labels": 18,
+      "response_rows": 760,
+      "seconds": 0.3904546520000025,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "empirical_mean",
+      "budget": 7,
+      "mixed_labels": 42,
+      "response_rows": 760,
+      "seconds": 0.4105068159999945,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "empirical_mean",
+      "budget": 15,
+      "mixed_labels": 90,
+      "response_rows": 760,
+      "seconds": 0.5159627250000085,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "empirical_mean",
+      "budget": 31,
+      "mixed_labels": 186,
+      "response_rows": 760,
+      "seconds": 0.748763688000011,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 0,
+      "mixed_labels": 0,
+      "response_rows": 760,
+      "seconds": 0.3877904710000024,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 1,
+      "mixed_labels": 6,
+      "response_rows": 760,
+      "seconds": 0.34713388999999495,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 3,
+      "mixed_labels": 18,
+      "response_rows": 760,
+      "seconds": 0.3780706520000052,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 7,
+      "mixed_labels": 42,
+      "response_rows": 760,
+      "seconds": 0.4611236169999984,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 15,
+      "mixed_labels": 90,
+      "response_rows": 760,
+      "seconds": 0.5099394140000015,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    },
+    {
+      "method": "beta_1_1",
+      "budget": 31,
+      "mixed_labels": 186,
+      "response_rows": 760,
+      "seconds": 0.6129000180000048,
+      "prediction_calls_count": 473,
+      "prediction_reuse_count": 287
+    }
+  ]
+}

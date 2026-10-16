@@ -1,0 +1,8 @@
+{
+  "analyze_pilot.py": "e9089139634d2be7db11fb2a60fbfe66f31434627f3b9743df0639f62e9bcf8f",
+  "evaluate_pilot.py": "94f6461b2bf041e7a3df2c8f7a780398d07386cdf321676e346207c3c8dab72c",
+  "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+  "run_baseline.py": "cf4e0d9e2fecf93b09af6235b7d30a5479297d97ee88e5f3da77f522b9606e39",
+  "test_evaluation.py": "01bdeb98bf6b573c0e80552dd598cb451715d8f75502e18297f3039522a4bbb9",
+  "verify_pilot.py": "0c6946b86f28bc16d7c1baea3b6dbcc00b7d9827ffe701ab65df1bae32d434a8"
+}

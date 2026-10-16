@@ -1,0 +1,47 @@
+{
+  "multi_swebench": {
+    "license": "Apache-2.0",
+    "items": 2127,
+    "subjects": 82,
+    "visible_subject_groups": 82,
+    "responses": 57975,
+    "missing_grades_excluded": 0,
+    "empty_item_content": 0,
+    "normalized_text_duplicate_items": 49,
+    "test_condition_counts": {
+      "None": 57975
+    },
+    "eligible_pairs": 82,
+    "repeated_response_cells": 140,
+    "cells_with_disagreeing_outcomes": 1
+  },
+  "researchcodebench": {
+    "license": "unknown",
+    "items": 212,
+    "subjects": 31,
+    "visible_subject_groups": 31,
+    "responses": 6784,
+    "missing_grades_excluded": 0,
+    "empty_item_content": 0,
+    "normalized_text_duplicate_items": 0,
+    "test_condition_counts": {
+      "None": 6784
+    },
+    "eligible_pairs": 31,
+    "repeated_response_cells": 212,
+    "cells_with_disagreeing_outcomes": 27
+  },
+  "cross_benchmark_normalized_exact_hash_overlap": 0,
+  "near_duplicates": {
+    "threshold": 0.9,
+    "shingle_width": 5,
+    "items": 2339,
+    "candidate_comparisons": 1668,
+    "matched_pairs": 1531,
+    "duplicate_clusters": 65,
+    "largest_cluster": 37,
+    "scope": "Lexical overlap only; does not detect arbitrary paraphrases or semantic duplicates",
+    "cross_benchmark_pairs": 0
+  },
+  "reference_answer_policy": "Excluded grading_criterion, verifier, asset_manifest and traces from predictor inputs"
+}

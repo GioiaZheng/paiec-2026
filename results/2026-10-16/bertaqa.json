@@ -1,0 +1,445 @@
+{
+  "status": "LOCAL_VALIDATION_ONLY",
+  "official_submission": false,
+  "protocol_sha256": "e523441e13223c3222089f41095ec2f9e87dddc9f4409226014f21152001574f",
+  "freeze": {
+    "frozen_at_utc": "2026-10-16T10:18:17.961838+00:00",
+    "protocol_sha256": "e523441e13223c3222089f41095ec2f9e87dddc9f4409226014f21152001574f",
+    "previous_protocol_sha256": "c36c5dd73d68ced85c02e6663aad739d5dff3ef79dcfa40447f1d8180131f83f",
+    "outcomes_read": false,
+    "schema_inspected": [
+      "benchmark release/type/license",
+      "item content and raw IDs",
+      "response subject/item IDs only"
+    ],
+    "amendment": "Source-question guard after label-blind schema audit; predictors and primary comparison unchanged."
+  },
+  "data_manifest": {
+    "data/bertaqa/benchmarks.parquet": {
+      "bytes": 16888,
+      "sha256": "f7a577a4ba050be0a4150d33dc903bdfe677b8c682831c550a9a6fd9a85a8a45",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/bertaqa/formatted_tables/benchmarks.parquet"
+    },
+    "data/bertaqa/items.parquet": {
+      "bytes": 25596401,
+      "sha256": "5bab19ecdfd45fe4fcb3bc937edd39768f219004a685739b278d51422198da36",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/bertaqa/formatted_tables/items.parquet"
+    },
+    "data/bertaqa/subjects.parquet": {
+      "bytes": 7282,
+      "sha256": "0ded33a6193ca7c496e188630d163ed62f2c89dd49a85e5ceb55eb88789bac07",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/bertaqa/formatted_tables/subjects.parquet"
+    },
+    "data/bertaqa/responses.parquet": {
+      "bytes": 2143408,
+      "sha256": "bdd7c044e384ea1db7c9a234076ae024db39f3f7691fb52caabd5761b910c80e",
+      "url": "https://huggingface.co/datasets/aims-foundations/measurement-db/resolve/54074453da7b9911be0f48e4c560be547bc84d21/bertaqa/formatted_tables/responses.parquet"
+    }
+  },
+  "audit": {
+    "bertaqa": {
+      "license": "Question dataset: CC-BY-4.0; GitHub code/results repository: MIT.",
+      "items": 51760,
+      "subjects": 6,
+      "visible_subject_groups": 6,
+      "responses": 57072,
+      "missing_grades_excluded": 0,
+      "empty_item_content": 0,
+      "normalized_text_duplicate_items": 0,
+      "test_condition_counts": {
+        "temperature=0": 57072
+      },
+      "eligible_pairs": 6,
+      "repeated_response_cells": 0,
+      "cells_with_disagreeing_outcomes": 0
+    },
+    "cross_benchmark_normalized_exact_hash_overlap": 0,
+    "near_duplicates": {
+      "threshold": 0.9,
+      "shingle_width": 5,
+      "items": 9512,
+      "candidate_comparisons": 48,
+      "matched_pairs": 25,
+      "duplicate_clusters": 25,
+      "largest_cluster": 2,
+      "scope": "Lexical overlap only; does not detect arbitrary paraphrases or semantic duplicates",
+      "comparison_unit": "Unique language-qualified final questions, excluding few-shot examples",
+      "source_questions": 4756,
+      "guarded_source_groups": 4737,
+      "prompt_variants": 51760,
+      "cross_benchmark_pairs": 0
+    },
+    "reference_answer_policy": "Excluded grading_criterion, verifier, asset_manifest and traces from predictor inputs"
+  },
+  "designs": {
+    "item": {
+      "config": {
+        "status": "FIXED_LOCAL_VALIDATION",
+        "benchmarks": [
+          "bertaqa"
+        ],
+        "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+        "seeds": [
+          20261016,
+          20261017,
+          20261018
+        ],
+        "budgets": [
+          0,
+          1,
+          3,
+          7,
+          15,
+          31
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ],
+        "fit": false,
+        "tuning": false,
+        "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+        "pyarrow": "23.0.1",
+        "gpu_used": false,
+        "split_unit": "item",
+        "near_duplicate_threshold": 0.9,
+        "limitations": [
+          "Limited public benchmarks; not an official private test",
+          "Lexical duplicate check does not detect semantic paraphrases or translations",
+          "Near/exact splits halve cluster counts, not item counts; item split halves item counts",
+          "Random acquisition is distribution-compatible; anonymous platform IDs prevent exact trajectory matching",
+          "No benchmark-level uncertainty intervals; seeds share the evaluation pool",
+          "Source data are not redistributed; per-benchmark licenses are recorded in audit.json"
+        ],
+        "source_sha256": {
+          "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+          "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+          "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+          "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+          "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+        },
+        "protocol_sha256": "e523441e13223c3222089f41095ec2f9e87dddc9f4409226014f21152001574f"
+      },
+      "summary": [
+        {
+          "benchmark": "bertaqa",
+          "method": "constant_0.5",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.25,
+          "briers": [
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "benchmark": "bertaqa",
+          "method": "empirical_mean",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.2629081513313762,
+          "briers": [
+            0.25,
+            0.4007569386038688,
+            0.2797583818750065,
+            0.2130575246639166,
+            0.19965756056027995,
+            0.19262070190761832
+          ]
+        },
+        {
+          "benchmark": "bertaqa",
+          "method": "beta_1_1",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.22409094761634935,
+          "briers": [
+            0.25,
+            0.24469675731240073,
+            0.24044762171759648,
+            0.213722382008835,
+            0.2002873644056808,
+            0.19260122527446738
+          ]
+        }
+      ],
+      "analysis": {
+        "per_budget": [
+          {
+            "budget": 0,
+            "empirical_mean": 0.25,
+            "beta_1_1": 0.25,
+            "weighted_delta": 0.0
+          },
+          {
+            "budget": 1,
+            "empirical_mean": 0.4007569386038688,
+            "beta_1_1": 0.24469675731240073,
+            "weighted_delta": -0.031212036258293614
+          },
+          {
+            "budget": 3,
+            "empirical_mean": 0.2797583818750065,
+            "beta_1_1": 0.24044762171759648,
+            "weighted_delta": -0.007862152031482007
+          },
+          {
+            "budget": 7,
+            "empirical_mean": 0.2130575246639166,
+            "beta_1_1": 0.213722382008835,
+            "weighted_delta": 0.00013297146898368363
+          },
+          {
+            "budget": 15,
+            "empirical_mean": 0.19965756056027995,
+            "beta_1_1": 0.2002873644056808,
+            "weighted_delta": 0.00012596076908016896
+          },
+          {
+            "budget": 31,
+            "empirical_mean": 0.19262070190761832,
+            "beta_1_1": 0.19260122527446738,
+            "weighted_delta": -1.947663315093884e-06
+          }
+        ],
+        "paired_mean_alc_delta": -0.038817203715026866,
+        "budget_1_fraction_of_net_improvement": 0.8040774005112288,
+        "by_benchmark": [
+          {
+            "benchmark": "bertaqa",
+            "pairs": 6,
+            "improved": 6,
+            "worsened": 0,
+            "tied": 0
+          }
+        ],
+        "by_seed": {
+          "20261016": -0.049819608066044095,
+          "20261017": -0.03427992067646951,
+          "20261018": -0.03235208240256696
+        },
+        "largest_losses": [],
+        "acquisition_pool_fraction_range": [
+          0.5,
+          0.5
+        ],
+        "interpretation": "Descriptive exploratory analysis; pairs share benchmarks and seeds share a fixed evaluation pool."
+      },
+      "verification": {
+        "status": "PASS",
+        "pair_seed_method_records_verified": 54,
+        "checks": [
+          "data hashes",
+          "row-wise Brier recomputation",
+          "ALC weights",
+          "label budgets",
+          "disjoint item pools",
+          "response coverage",
+          "audited lexical/source-group separation when enabled"
+        ],
+        "limitations": "Lexical audit does not establish semantic duplicate absence or exact official platform trajectories"
+      },
+      "source_group_overlap_range": [
+        2316,
+        2433
+      ]
+    },
+    "source": {
+      "config": {
+        "status": "FIXED_LOCAL_VALIDATION",
+        "benchmarks": [
+          "bertaqa"
+        ],
+        "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+        "seeds": [
+          20261016,
+          20261017,
+          20261018
+        ],
+        "budgets": [
+          0,
+          1,
+          3,
+          7,
+          15,
+          31
+        ],
+        "weights": [
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ],
+        "fit": false,
+        "tuning": false,
+        "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+        "pyarrow": "23.0.1",
+        "gpu_used": false,
+        "split_unit": "source",
+        "near_duplicate_threshold": 0.9,
+        "limitations": [
+          "Limited public benchmarks; not an official private test",
+          "Lexical duplicate check does not detect semantic paraphrases or translations",
+          "Near/exact splits halve cluster counts, not item counts; item split halves item counts",
+          "Random acquisition is distribution-compatible; anonymous platform IDs prevent exact trajectory matching",
+          "No benchmark-level uncertainty intervals; seeds share the evaluation pool",
+          "Source data are not redistributed; per-benchmark licenses are recorded in audit.json"
+        ],
+        "source_sha256": {
+          "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+          "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+          "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+          "shrinkage/model.py": "d0aac775b5f3c69e43a0ac9de4caf253e8961ea288a21135a4d47d1e88543c91",
+          "upstream/empirical_mean/model.py": "1e570641dd9b981baae988779b904ae58ad610a99bd44fb861647c60c93e935e"
+        },
+        "protocol_sha256": "e523441e13223c3222089f41095ec2f9e87dddc9f4409226014f21152001574f"
+      },
+      "summary": [
+        {
+          "benchmark": "bertaqa",
+          "method": "constant_0.5",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.25,
+          "briers": [
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ]
+        },
+        {
+          "benchmark": "bertaqa",
+          "method": "empirical_mean",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.2717755440218243,
+          "briers": [
+            0.25,
+            0.4154580472805022,
+            0.2769534717091637,
+            0.23524386947998055,
+            0.20927869714765265,
+            0.19388726898364503
+          ]
+        },
+        {
+          "benchmark": "bertaqa",
+          "method": "beta_1_1",
+          "pairs": 6,
+          "seed_repetitions": 3,
+          "alc": 0.22645402675547086,
+          "briers": [
+            0.25,
+            0.24959712687127855,
+            0.23283874969216484,
+            0.22196412266628313,
+            0.20616222348604235,
+            0.1934158221231705
+          ]
+        }
+      ],
+      "analysis": {
+        "per_budget": [
+          {
+            "budget": 0,
+            "empirical_mean": 0.25,
+            "beta_1_1": 0.25,
+            "weighted_delta": 0.0
+          },
+          {
+            "budget": 1,
+            "empirical_mean": 0.4154580472805022,
+            "beta_1_1": 0.24959712687127855,
+            "weighted_delta": -0.033172184081844726
+          },
+          {
+            "budget": 3,
+            "empirical_mean": 0.2769534717091637,
+            "beta_1_1": 0.23283874969216484,
+            "weighted_delta": -0.00882294440339977
+          },
+          {
+            "budget": 7,
+            "empirical_mean": 0.23524386947998055,
+            "beta_1_1": 0.22196412266628313,
+            "weighted_delta": -0.002655949362739485
+          },
+          {
+            "budget": 15,
+            "empirical_mean": 0.20927869714765265,
+            "beta_1_1": 0.20616222348604235,
+            "weighted_delta": -0.0006232947323220606
+          },
+          {
+            "budget": 31,
+            "empirical_mean": 0.19388726898364503,
+            "beta_1_1": 0.1934158221231705,
+            "weighted_delta": -4.714468604745392e-05
+          }
+        ],
+        "paired_mean_alc_delta": -0.045321517266353493,
+        "budget_1_fraction_of_net_improvement": 0.7319301312639773,
+        "by_benchmark": [
+          {
+            "benchmark": "bertaqa",
+            "pairs": 6,
+            "improved": 6,
+            "worsened": 0,
+            "tied": 0
+          }
+        ],
+        "by_seed": {
+          "20261016": -0.04965874734118823,
+          "20261017": -0.05075887212723564,
+          "20261018": -0.0355469323306366
+        },
+        "largest_losses": [],
+        "acquisition_pool_fraction_range": [
+          0.49957947855340623,
+          0.5006307821698907
+        ],
+        "interpretation": "Descriptive exploratory analysis; pairs share benchmarks and seeds share a fixed evaluation pool."
+      },
+      "verification": {
+        "status": "PASS",
+        "pair_seed_method_records_verified": 54,
+        "checks": [
+          "data hashes",
+          "row-wise Brier recomputation",
+          "ALC weights",
+          "label budgets",
+          "disjoint item pools",
+          "response coverage",
+          "audited lexical/source-group separation when enabled"
+        ],
+        "limitations": "Lexical audit does not establish semantic duplicate absence or exact official platform trajectories"
+      },
+      "source_group_overlap_range": [
+        0,
+        0
+      ]
+    }
+  },
+  "source_sha256": {
+    "analyze_pilot.py": "9dc69067c09138cf0db6832d83ad76a3bd1b75b7ceeb6641cebabfd1c4f5321d",
+    "bertaqa_groups.py": "8ed5f87c8819fd3bf03bdb7566eb438b9a205f6e4f4504dac7d0787dd9b10b0c",
+    "evaluate_pilot.py": "d410bbc5e49b17736b827633886a66c920659ec233e06daa8b92c03ea4e6b414",
+    "near_duplicates.py": "ac3a6fbe2fc1afc3ed041daafc1a7c0c8b4c6fe6b2787a3615f17eb21a83d219",
+    "run_baseline.py": "91a24e25f75466cf688f7b7c7f6779391b1a3ceb47baa5f41d65f7be6b424691",
+    "test_evaluation.py": "1d9b847e7f7668d16b1ace4692b30837ff33fe42687c7df5594e747e0bd817c6",
+    "verify_pilot.py": "68ac7d5790e0aeef5c670e973419c8c10e54ca7156cea7da7b64d626b2e9a50a"
+  }
+}
