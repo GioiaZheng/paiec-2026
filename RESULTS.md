@@ -108,6 +108,52 @@ variation while keeping the pools fixed. Twelve groups still worsen; all have
 evaluation success below 10%. This supports a variance-versus-bias explanation,
 not universal improvement. See [the derivation and diagnostics](docs/shrinkage_analysis.md).
 
+## Weaker fixed shrinkage
+
+The [follow-up protocol](configs/weaker-shrinkage.json) fixes Beta(0.5,0.5)
+before reading FinanceBench outcomes. The four previously inspected benchmarks
+are development reanalyses. All methods share pools, budgets and acquired labels.
+No parameter search or new hosted submission is used.
+
+| Benchmark | Role | Groups | Mean ALC | Beta(1,1) | Beta(0.5,0.5) |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Multi-SWE-Bench | Development | 82 | 0.203341 | 0.182148 | 0.182152 |
+| ResearchCodeBench | Development | 31 | 0.272125 | 0.229991 | 0.236628 |
+| BertaQA | Development | 6 | 0.271776 | 0.226454 | 0.234033 |
+| REAL | Development | 26 | 0.245946 | 0.210362 | 0.214798 |
+| FinanceBench | New public validation | 16 | 0.234080 | 0.202287 | 0.205503 |
+
+Lower is better. Scores average the same three acquisition seeds. Coding uses
+lexical groups, BertaQA uses source-question groups, and REAL and FinanceBench
+use item splits. These rows cover all local eligible groups; the BertaQA and
+some coding groups exceed the hosted draw cap. Size-filtered summaries are
+included in the evidence file.
+
+On FinanceBench, the weaker prior worsens observed ALC by **0.003215**, with
+six groups improving and ten worsening. All three acquisition seeds have the
+same aggregate direction. Exact conditional expected ALC also worsens, from
+0.195384 to 0.197041. The prespecified overall-improvement criterion fails.
+
+The two groups with evaluation success below 10% improve: observed ALC falls
+from 0.113542 to 0.104443, and expected ALC from 0.107401 to 0.096816. However,
+the empirical mean's expected ALC in this slice is still lower, at 0.094770.
+This is an outcome-defined diagnostic, not a usable rule for choosing a prior.
+
+Across all 16 groups at budget 1, weaker shrinkage reduces expected squared
+bias by 0.016975 but adds 0.023299 prediction variance, increasing expected
+Brier by 0.006324. It retains a small-budget benefit over the empirical mean,
+but gives up too much variance reduction to improve overall ALC. **Keep
+Beta(1,1) as the baseline.**
+
+All 150 items and 2,400 responses pass key, join, binary-label and coverage
+checks; all 16 configurations are eligible. No grades are missing, no response
+cells repeat, and no exact or 0.9-Jaccard duplicate questions are found. The
+guarded split produces identical trajectories and scores, so it is not a
+second replication. The evaluation does not establish document-level or
+semantic independence. FinanceBench is now inspected data for future work.
+
+[Ablation evidence](results/2026-10-16/weaker_shrinkage.json)
+
 ## Checks and limits
 
 - The coding pilot's lexical audit found 65 duplicate clusters using token 5-shingle Jaccard
@@ -127,7 +173,7 @@ not universal improvement. See [the derivation and diagnostics](docs/shrinkage_a
   match saved probabilities and row-wise Brier/ALC; repeated-input reuse is
   exercised. This checks the executable archives, not a new performance claim.
   [Replay evidence](results/2026-10-16/runtime_replay.json)
-- Two coding benchmarks, BertaQA and REAL are still a small
+- Two coding benchmarks, BertaQA, REAL and FinanceBench are still a small
   sample. These are local results, not official feedback or evidence of broad
   generalization. No benchmark-level confidence interval is claimed.
 

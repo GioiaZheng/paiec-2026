@@ -32,7 +32,10 @@ Both archives pass official checks on Windows and Linux. The initial comparison
 covers two coding benchmarks; fixed BertaQA and REAL validations also support
 shrinkage at small label budgets. Exact acquisition diagnostics explain gains
 and low-success failures. A technical report draft is available locally.
-The first development submission has been uploaded; hosted evaluation is pending.
+The shrinkage candidate has completed its first hosted development evaluation.
+The paired comparisons reported here remain local experiments.
+A fixed Beta(0.5,0.5) ablation reduces low-success bias but worsens overall ALC
+on the new FinanceBench validation. Beta(1,1) remains the baseline; see [Results](RESULTS.md).
 
 ## Acknowledgments
 

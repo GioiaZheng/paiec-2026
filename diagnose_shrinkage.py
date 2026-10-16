@@ -11,6 +11,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent
 METHODS = ('constant_0.5', 'empirical_mean', 'beta_1_1')
+ALPHAS = {'empirical_mean': 0., 'beta_0_5_0_5': .5, 'beta_1_1': 1.}
 SUBJECT_KEYS = ('normalized_name', 'provider', 'release_date', 'access_date',
                 'harness', 'harness_version', 'reasoning_effort', 'subject_features_extra')
 
@@ -24,7 +25,7 @@ def expected_brier(item_means, evaluation_rate, budget, method):
     size = len(item_means)
     if not size or not 0 <= budget <= size or not 0 <= evaluation_rate <= 1:
         raise ValueError('Invalid pool, budget or evaluation rate')
-    if method not in METHODS or any(not 0 <= p <= 1 for p in item_means):
+    if (method != 'constant_0.5' and method not in ALPHAS) or any(not 0 <= p <= 1 for p in item_means):
         raise ValueError('Invalid method or item response mean')
     if budget == 0 or method == 'constant_0.5':
         prediction_mean, prediction_variance = .5, 0.
@@ -34,7 +35,7 @@ def expected_brier(item_means, evaluation_rate, budget, method):
         within = statistics.fmean(p * (1 - p) for p in item_means)
         correction = (size - budget) / (size - 1) if size > 1 else 0.
         sum_variance = budget * (correction * between + within)
-        alpha = 1 if method == 'beta_1_1' else 0
+        alpha = ALPHAS[method]
         prediction_mean = (budget * mean + alpha) / (budget + 2 * alpha)
         prediction_variance = sum_variance / (budget + 2 * alpha) ** 2
     bias_squared = (prediction_mean - evaluation_rate) ** 2
