@@ -1,0 +1,34 @@
+{
+  "stage": "DEVELOPMENT_REANALYSIS_NOT_UNTOUCHED_VALIDATION",
+  "specified_at_utc": "2026-10-31T20:22:50Z",
+  "question": "Does transferring a prior center from other benchmarks improve over fixed Beta(1,1)?",
+  "revision": "54074453da7b9911be0f48e4c560be547bc84d21",
+  "benchmarks": ["multi_swebench", "researchcodebench", "bertaqa", "real_webagents", "financebench"],
+  "method": "(successes + 2 * center) / (labels + 2); fixed strength 2",
+  "fit": "Within each training benchmark, average the full-response success rates of eligible subject groups equally. Average the four training benchmark means equally. Exclude all outcomes from the held-out benchmark. No model-name features or item-text predictor.",
+  "folds": "Leave one complete benchmark out; shared model identities are allowed, as in the benchmark cold-start task.",
+  "primary_runs": [
+    "runs/pilot-20261016T094811723234Z",
+    "runs/pilot-20261016T101819880854Z",
+    "runs/pilot-20261016T103126523131Z",
+    "runs/pilot-20261016T113704386894Z"
+  ],
+  "sensitivity_runs": [
+    "runs/pilot-20261016T094633259270Z",
+    "runs/pilot-20261016T101838176075Z"
+  ],
+  "seeds": [20261016, 20261017, 20261018],
+  "budgets": [0, 1, 3, 7, 15, 31],
+  "weights": [0.1, 0.2, 0.2, 0.2, 0.2, 0.1],
+  "primary_endpoint": "Equal-pair Brier ALC on saved item splits, averaged over three acquisition seeds; also report equal-benchmark ALC and exact conditional expectations.",
+  "screening_rule": "Continue to genuinely new public validation only if both equal-pair and equal-benchmark observed and expected ALC improve, at least four of five benchmarks improve in observed and expected ALC, and the equal-benchmark direction remains favorable when coding and BertaQA use guarded splits. This is a development screen, not automatic replacement of the submission.",
+  "leakage_check": "Hash-check original data and saved trajectories. Exclude the complete target benchmark from fit. Audit normalized exact and 0.9-Jaccard cross-benchmark question overlap across eligible items, using BertaQA final user questions. Stop before comparison if cross-benchmark matches exist.",
+  "constraints": "One fixed method; no center or strength grid search, no leaderboard queries, no API, no GPU, no new downloads.",
+  "limitations": [
+    "All five benchmarks were inspected previously; this is adaptive development, not fresh confirmatory evidence.",
+    "Lexical checks do not exclude all semantic or document-level overlap.",
+    "Three acquisition seeds share pools and are not independent benchmark replications.",
+    "Saved full groups do not reproduce the hosted balancing and 1000-pair sampling cap.",
+    "The trained center assumes training success rates transfer to new benchmarks; domain shift may make this worse than 0.5."
+  ]
+}

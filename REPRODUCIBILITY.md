@@ -172,3 +172,10 @@ the weaker prior and isolation across all eight subject fields. The new module
 also passes the unchanged starting kit's two-input sequential smoke test.
 That smoke score is an interface check, not experiment evidence. The original
 Beta(1,1) module and submitted archive are unchanged.
+
+## Follow-up experiments
+
+[Follow-up reproduction](docs/extensions-reproduction.md) covers transferred
+priors, adaptive mixing and lexical weighting. It rebuilds all public-data pools
+and verifies the saved aggregate results in a new workspace. No private feedback
+or item-level data are included in the repository.

@@ -178,3 +178,42 @@ semantic independence. FinanceBench is now inspected data for future work.
   generalization. No benchmark-level confidence interval is claimed.
 
 [Aggregate evidence](results/2026-10-16/) · [Protocol](docs/evaluation_protocol.md)
+
+## Prior transfer and lexical weighting
+
+These follow-ups use the five previously inspected benchmarks as development
+data. The center of the transferred prior is fitted without the entire target
+benchmark. Lower Brier ALC is better.
+
+| Method | Equal-pair ALC | Equal-benchmark ALC |
+| --- | ---: | ---: |
+| Beta(1,1) | 0.198355 | 0.209376 |
+| Transferred center | 0.196179 | 0.211976 |
+| Fixed mixture | 0.197093 | 0.210236 |
+| Adaptive mixture | 0.197112 | 0.210257 |
+
+The pair-weighted score improves, but the benchmark-weighted robustness check
+worsens. BertaQA exposes a large transfer error; adaptive mixing reduces this
+error without removing it. Both candidates fail their development criteria.
+
+Lexical weighting keeps the Beta(1,1) pseudo-counts and gives similar acquired
+questions slightly greater weight. All fitting uses the matching revealed
+prefix. Zero/one-label predictions remain identical to the baseline.
+
+| Population | Groups | Beta(1,1) | Lexical | Shuffled labels |
+| --- | ---: | ---: | ---: | ---: |
+| Development, item | 161 | 0.198355 | 0.198029 | 0.198412 |
+| TruthfulQA, new validation | 150 | 0.227169 | 0.227132 | 0.227166 |
+
+TruthfulQA was selected and the method/rule frozen before reading its outcomes.
+Its mean gain is small, and one of three acquisition seeds gets worse, so the
+fixed stability rule fails. The item and guarded splits coincide and count as
+one validation. The shuffled-label control uses one deterministic permutation
+per group, seed and budget; it is not a significance test. This does not prove
+the method cannot help, but does not support replacing the baseline under the
+chosen rule. No extension has a hosted evaluation.
+
+The clean replication rebuilds the pools and matches all recorded aggregate
+summaries within `1e-12`; it is a reproducibility check, not new validation.
+See [the reproduction guide](docs/extensions-reproduction.md) and
+[aggregate reference](results/2026-10-31/extensions-reference.json).

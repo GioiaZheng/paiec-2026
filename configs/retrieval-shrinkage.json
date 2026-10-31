@@ -1,0 +1,21 @@
+{
+  "stage": "DEVELOPMENT_REANALYSIS_NOT_UNTOUCHED_VALIDATION",
+  "question": "Does lexical similarity to revealed questions improve item-level prediction beyond the group mean?",
+  "parent_protocol": "configs/transferred-prior.json",
+  "parent_run": "runs/transferred-prior-20261031T202405248209Z",
+  "method": "Tokenize NFKC-casefolded text into Unicode words, use 1+log(tf), and smooth IDF 1+log((n+1)/(df+1)) fitted only on the current matching revealed prefix. Compute cosine similarity c_i to each acquired item; set w_i=n*(1+c_i)/(n+sum(c)). Predict (1+sum(w_i*y_i))/(n+2). No neighbor truncation or tuned similarity scale.",
+  "text_policy": "For serialized chat prompts, use the final user message to exclude demonstrations. Otherwise use the supplied item_content string. Empty features yield zero cosine. No item_features, answer keys, traces or model-name features enter prediction.",
+  "controls": ["beta_1_1", "same_weight_rule_with_permuted_acquired_labels"],
+  "permutation": "For each pair, seed and budget, deterministically shuffle the revealed-label vector using SHA256(pair:seed:budget:retrieval-null-v1) as the random seed. Preserve the label count and success count; reuse exactly the same similarities. One permutation is a diagnostic, not a significance test.",
+  "invariants": "Total label weight remains n. Budgets zero and one match Beta(1,1) exactly. Equal similarities give the baseline. Only the full eight-field subject and benchmark-matching revealed labels are used.",
+  "evaluation": "Score each evaluation item separately, and include all its response rows. Reuse the saved item and guarded splits, three acquisition seeds and six budgets. The constant-within-group aggregate shortcut is invalid for this predictor.",
+  "screening_rule": "Advance only if observed equal-pair and equal-benchmark ALC improve over Beta(1,1), at least four of five benchmark means improve, guarded equal-benchmark direction stays favorable, and each primary acquisition seed's equal-benchmark delta is negative. The real-label predictor must also beat the shuffled-label control in both primary and guarded equal-benchmark means before attributing gain to text. Passing still requires fresh public validation before promotion.",
+  "constraints": "One fixed lexical weighting rule, no neighbors or scale search; no paid services, external embeddings, downloads or leaderboard calls.",
+  "limitations": [
+    "All five benchmarks were inspected previously; this is development evidence.",
+    "Only three fixed acquisition trajectories; no exact expectation or benchmark-level significance claim for this item-dependent predictor.",
+    "Words may reflect language, templates or formatting rather than difficulty.",
+    "Lexical and source-question guards do not prove full semantic independence.",
+    "Large local groups do not reproduce the hosted 1000-pair sample cap."
+  ]
+}

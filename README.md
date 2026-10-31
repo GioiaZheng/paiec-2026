@@ -37,6 +37,13 @@ The paired comparisons reported here remain local experiments.
 A fixed Beta(0.5,0.5) ablation reduces low-success bias but worsens overall ALC
 on the new FinanceBench validation. Beta(1,1) remains the baseline; see [Results](RESULTS.md).
 
+## Follow-up experiments
+
+Transferred priors and bounded lexical weighting did not meet the fixed
+robustness and validation criteria. Beta(1,1) remains the candidate.
+[Reproduce the follow-ups](docs/extensions-reproduction.md) from pinned data in
+a new directory; the driver does not need the original saved runs.
+
 ## Acknowledgments
 
 The empirical-mean reference and ZIP checks come from the

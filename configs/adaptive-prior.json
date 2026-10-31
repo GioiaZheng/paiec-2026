@@ -1,0 +1,22 @@
+{
+  "stage": "DEVELOPMENT_REANALYSIS_NOT_UNTOUCHED_VALIDATION",
+  "question": "Can revealed-label Bayesian evidence reduce the cross-benchmark failure of a transferred prior?",
+  "parent_protocol": "configs/transferred-prior.json",
+  "parent_run": "runs/transferred-prior-20261031T202405248209Z",
+  "components": ["Beta(1,1)", "Beta(2*center,2*(1-center))"],
+  "initial_weights": [0.5, 0.5],
+  "candidate": "Update component weights by the beta-binomial marginal likelihood of matching revealed labels. Predict the posterior-weighted component means. No evaluation outcomes enter weight updates.",
+  "controls": ["beta_1_1", "transferred_center", "static_half_mixture"],
+  "fit": "Reuse the training-only center in each leave-one-benchmark-out fold. Independently refit and check it against the previous run. Keep all prior strengths at 2 and random acquisition unchanged.",
+  "evaluation": "Reuse the five benchmarks, saved item splits, guarded sensitivity, three acquisition seeds and six budgets from the parent protocol. Compute exact finite-pool acquisition expectations for the nonlinear predictor using the complete success-count distribution; verify against exhaustive small fixtures and the old linear formulas.",
+  "screening_rule": "Advance only if the adaptive candidate improves observed and expected equal-pair and equal-benchmark ALC over Beta(1,1), improves at least four of five benchmark folds in both observed and expected ALC, and preserves the equal-benchmark direction on guarded splits. Additionally compare against the static half-mixture to attribute any benefit to adaptation. Passing is development evidence only.",
+  "diagnostics": "Report all methods, budgets, seed deltas, and posterior weights; explicitly report the previous BertaQA failure. Outcome-defined group slices are descriptive, never prediction inputs.",
+  "constraints": "One fixed candidate plus static mixing ablation. No mixture-weight, prior-strength or threshold search; no new downloads, paid services or leaderboard calls.",
+  "limitations": [
+    "This hypothesis was motivated by inspected results; all five datasets remain development data.",
+    "At zero labels, there is no evidence to detect a mismatched prior. The initial mixture still transfers information.",
+    "Both components are broad priors. More observations need not force either component weight to zero.",
+    "Finite-pool expectation removes acquisition noise only, not training uncertainty or benchmark shift.",
+    "Existing lexical checks cannot rule out all semantic overlap; model identities may recur across folds."
+  ]
+}
