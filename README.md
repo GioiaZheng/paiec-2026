@@ -1,6 +1,6 @@
 # paiec-2026
 
-**Predicting model correctness on unseen benchmarks with limited observed labels.**
+**Predicting model correctness on unseen benchmark items with limited observed labels.**
 
 Experiments for the [Predictive AI Evaluation Competition](https://aims.stanford.edu/competition)
 at NeurIPS 2026, focused on calibration and benchmark generalization.
@@ -31,7 +31,7 @@ calling an API. See [Reproducibility](REPRODUCIBILITY.md) for the data pilot.
 Both archives pass official checks on Windows and Linux. The initial comparison
 covers two coding benchmarks; fixed BertaQA and REAL validations also support
 shrinkage at small label budgets. Exact acquisition diagnostics explain gains
-and low-success failures. A technical report draft is available locally.
+and low-success failures.
 The shrinkage candidate has completed its first hosted development evaluation.
 The paired comparisons reported here remain local experiments.
 A fixed Beta(0.5,0.5) ablation reduces low-success bias but worsens overall ALC
@@ -42,3 +42,8 @@ on the new FinanceBench validation. Beta(1,1) remains the baseline; see [Results
 The empirical-mean reference and ZIP checks come from the
 [official PAIEC baselines](https://github.com/aims-foundations/paiec_baseline),
 used under their MIT license. Dataset licenses remain separate.
+
+## License
+
+Code is available under the [MIT license](LICENSE). See
+[third-party notices](THIRD_PARTY_NOTICES.md) for the adapted baseline.
