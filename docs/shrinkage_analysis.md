@@ -68,4 +68,4 @@ The implementation is checked against exhaustive enumeration on small pools,
 including unequal numbers of repeated outcomes and conflicting responses.
 No predictor, prior, acquisition policy or submission archive was changed.
 
-[Code](../diagnose_shrinkage.py) · [Aggregate evidence](../results/2026-10-16/shrinkage_diagnostics.json)
+[Code](../experiments/diagnose_shrinkage.py) · [Aggregate evidence](../results/2026-10-16/shrinkage_diagnostics.json)

@@ -16,6 +16,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent
 REFERENCE = ROOT / 'results/2026-10-31/extensions-reference.json'
+SUBMITTED_REVISION = 'd2d3e3c1e803880f4918f2f8065616b513731a40'
 
 
 def read(path):
@@ -26,9 +27,29 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def source_bytes(path):
-    # Git may check text out with CRLF. Python/JSON parsing is unchanged by LF normalization.
-    return path.read_text(encoding='utf-8').encode('utf-8')
+def source_bytes(name):
+    if name == 'reproduce_extensions.py':
+        # The manifest includes the original driver; keep its recorded hash intact.
+        result = subprocess.run(['git', 'show', f'{SUBMITTED_REVISION}:{name}'],
+                                cwd=ROOT, capture_output=True)
+        if result.returncode:
+            raise RuntimeError('The submitted revision is missing. Use a full Git clone.')
+        return result.stdout.decode('utf-8').replace('\r\n', '\n').encode('utf-8')
+    path = Path(name)
+    if path.parent == Path('.') and path.suffix == '.py' and name != 'run_baseline.py':
+        path = Path('tests' if name.startswith('test_') else 'experiments') / path
+    # Git may check text out with CRLF; recorded source hashes use LF.
+    return (ROOT/path).read_text(encoding='utf-8').encode('utf-8')
+
+
+def recorded_sources(reference):
+    sources = {}
+    for name, expected in reference['source_sha256'].items():
+        content = source_bytes(name)
+        if hashlib.sha256(content).hexdigest() != expected:
+            raise ValueError(f'Changed recorded source: {name}')
+        sources[name] = content
+    return sources
 
 
 def write(path, value):
@@ -57,28 +78,31 @@ def compare(actual, expected, location='summary'):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, default=ROOT/'data', help='Local pinned formatted tables')
-    parser.add_argument('--output', type=Path, required=True, help='New, nonexistent workspace directory')
+    parser.add_argument('--output', type=Path, help='New, nonexistent workspace directory')
+    parser.add_argument('--check-sources', action='store_true', help='Verify frozen sources without running experiments')
     args = parser.parse_args()
     if sys.version_info[:2] != (3, 12):
         raise RuntimeError('Use Python 3.12 for the recorded numerical replication')
     reference = read(REFERENCE)
+    if not args.check_sources and args.output is None:
+        parser.error('--output is required unless --check-sources is used')
+    sources = recorded_sources(reference)
+    if args.check_sources:
+        print(f'Verified {len(sources)} recorded sources; submitted revision {SUBMITTED_REVISION}')
+        return
     destination = args.output.resolve()
     if destination.exists():
         raise FileExistsError('Choose a new output directory; existing runs are never overwritten')
     data_root = args.data.resolve()
-    sources = reference['source_sha256']
-    for name, expected in sources.items():
-        if hashlib.sha256(source_bytes(ROOT/name)).hexdigest() != expected:
-            raise ValueError(f'Changed recorded source: {name}')
     for name, expected in reference['data_sha256'].items():
         relative = Path(name).relative_to('data')
         if sha(data_root/relative) != expected:
             raise ValueError(f'Wrong data revision: {name}')
     destination.mkdir(parents=True)
-    for name in sources:
+    for name, content in sources.items():
         target = destination/name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(source_bytes(ROOT/name))
+        target.write_bytes(content)
     for name in reference['data_sha256']:
         target = destination/name
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -149,6 +173,7 @@ def main():
 
     # Recompute the metadata-only overlap audit; this repeat is not label-naive prospective evidence.
     sys.path.insert(0, str(ROOT/'.deps'))
+    sys.path.insert(0, str(destination))
     import pyarrow.parquet as pq
     from near_duplicates import audit_items
     texts = {}

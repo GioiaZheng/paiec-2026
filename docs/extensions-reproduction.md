@@ -7,7 +7,7 @@ TruthfulQA gain reverses under one of three acquisition seeds.
 
 ## Reproduce
 
-Use Python 3.12. Install the pinned local dependencies and obtain the reference
+Use Python 3.12 and a full Git clone. Install the pinned local dependencies and obtain the reference
 baseline as described in [Reproducibility](../REPRODUCIBILITY.md). Download the
 four formatted tables (`benchmarks`, `items`, `subjects`, `responses`) for these
 six benchmarks from measurement-db revision
@@ -27,7 +27,10 @@ python -X utf8 reproduce_extensions.py --data data --output local/replication
 ```
 
 The output directory must not exist. The driver verifies all 24 data hashes and
-the recorded source hashes before copying inputs into the new directory. It
+the recorded source hashes before copying inputs into the new directory.
+It restores files from `experiments/` and `tests/` to their original paths;
+the original driver is read from submitted revision
+`d2d3e3c1e803880f4918f2f8065616b513731a40`. The recorded manifest is unchanged. It
 normalizes source text to LF so Windows/Git newline conversion does not break
 the source checks; data files are checked byte for byte. It
 rebuilds the acquisition/evaluation pools, runs the comparisons and independently
