@@ -1,60 +1,40 @@
 # paiec-2026
 
-**Predicting model correctness on unseen benchmark items with limited observed labels.**
+Predicting model correctness with few observed labels for the
+[NeurIPS 2026 Predictive AI Evaluation Competition](https://aims.stanford.edu/competition).
 
-Experiments for the [Predictive AI Evaluation Competition](https://aims.stanford.edu/competition)
-at NeurIPS 2026, focused on calibration and benchmark generalization.
+The submitted method uses fixed Beta(1,1) shrinkage:
+`(successes + 1) / (labels + 2)`, with random label acquisition.
+Local experiments examine its small-budget gains and low-success bias.
+Weaker shrinkage, transferred priors and lexical weighting did not meet the
+criteria for replacing it.
 
-[Results](RESULTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Evaluation protocol](docs/evaluation_protocol.md)
+[Results](RESULTS.md) · [Reproduction](REPRODUCIBILITY.md) · [Evaluation protocol](docs/evaluation_protocol.md)
 
-## Approach
+## Run the checks
 
-Start with constant 0.5 and the official acquired-label mean. Compare a fixed
-Beta(1,1) estimate, `(successes + 1) / (labels + 2)`, to test whether shrinkage
-helps when only a few outcomes are available. Acquisition stays random.
-
-## Quickstart
-
-Requires Python 3.12 and Git. The official baseline is kept at a pinned revision:
+Requires Python 3.12 and Git. From the repository root:
 
 ```bash
 git clone --config core.autocrlf=false https://github.com/aims-foundations/paiec_baseline.git upstream
 git -C upstream checkout cc88a959c1e5e7462f31a9215baba066ce6d6e2b
+python -m unittest discover -s tests -t . -v
 python run_baseline.py
 ```
 
-This builds and checks both submission archives without downloading data or
-calling an API. See [Reproducibility](REPRODUCIBILITY.md) for the data pilot.
+These checks use synthetic inputs; no dataset, GPU or API is needed.
 
-## Status
+## Contents
 
-Both archives pass official checks on Windows and Linux. The initial comparison
-covers two coding benchmarks; fixed BertaQA and REAL validations also support
-shrinkage at small label budgets. Exact acquisition diagnostics explain gains
-and low-success failures.
-The shrinkage candidate has completed its first hosted development evaluation.
-The paired comparisons reported here remain local experiments.
-A fixed Beta(0.5,0.5) ablation reduces low-success bias but worsens overall ALC
-on the new FinanceBench validation. Beta(1,1) remains the baseline; see [Results](RESULTS.md).
+- `shrinkage/`: submitted predictor; `weaker_shrinkage/` and `retrieval_shrinkage/`: comparison methods.
+- `experiments/`, `tests/`: frozen experiment code and unit tests.
+- `configs/`, `results/`, `docs/`: protocols, aggregate results and methodology.
+- `reproduce_extensions.py`: rebuilds the follow-up experiments in a new local workspace.
 
-## Follow-up experiments
+The report uses [code revision `d2d3e3c`](https://github.com/GioiaZheng/paiec-2026/tree/d2d3e3c1e803880f4918f2f8065616b513731a40).
+Public results come from released training benchmarks; raw data and private
+CodaBench feedback stay local under the [competition's sharing rules](https://aims.stanford.edu/competition).
 
-Transferred priors and bounded lexical weighting did not meet the fixed
-robustness and validation criteria. Beta(1,1) remains the candidate.
-[Reproduce the follow-ups](docs/extensions-reproduction.md) from pinned data in
-a new directory; the driver does not need the original saved runs.
-
-Public results are local experiments on released training benchmarks. Raw data
-and private CodaBench feedback stay outside this repository, following the
-[competition's sharing rules](https://aims.stanford.edu/competition).
-
-## Acknowledgments
-
-The empirical-mean reference and ZIP checks come from the
-[official PAIEC baselines](https://github.com/aims-foundations/paiec_baseline),
-used under their MIT license. Dataset licenses remain separate.
-
-## License
-
-Code is available under the [MIT license](LICENSE). See
-[third-party notices](THIRD_PARTY_NOTICES.md) for the adapted baseline.
+Code: [MIT](LICENSE). The empirical-mean reference and ZIP checks come from the
+[official baseline](https://github.com/aims-foundations/paiec_baseline).
+See [third-party notices](THIRD_PARTY_NOTICES.md); dataset licenses are separate.
