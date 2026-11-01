@@ -1,5 +1,12 @@
 # Reproducibility
 
+## Automated checks
+
+The `tests` workflow runs the existing unit tests and `python run_baseline.py`
+on Python 3.12, using the pinned official baseline. These checks use synthetic
+fixtures and the standard library; they need no dataset, GPU, API key or private
+feedback. Reproducing the experimental results still requires the steps below.
+
 ## Baseline checks
 
 Follow the README to obtain the pinned official baseline, then run:

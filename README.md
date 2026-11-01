@@ -44,6 +44,10 @@ robustness and validation criteria. Beta(1,1) remains the candidate.
 [Reproduce the follow-ups](docs/extensions-reproduction.md) from pinned data in
 a new directory; the driver does not need the original saved runs.
 
+Public results are local experiments on released training benchmarks. Raw data
+and private CodaBench feedback stay outside this repository, following the
+[competition's sharing rules](https://aims.stanford.edu/competition).
+
 ## Acknowledgments
 
 The empirical-mean reference and ZIP checks come from the
