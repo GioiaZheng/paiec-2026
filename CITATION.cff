@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this report or its accompanying code, please cite it using the metadata below."
+type: software
+title: "Fixed Shrinkage for Predictive AI Evaluation with Few Observed Labels"
+authors:
+  - family-names: "Zheng"
+    given-names: "Gioia"
+repository-code: "https://github.com/GioiaZheng/paiec-2026"
+url: "https://openreview.net/forum?id=unVHJGkE8n"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Fixed Shrinkage for Predictive AI Evaluation with Few Observed Labels"
+  authors:
+    - family-names: "Zheng"
+      given-names: "Gioia"
+  year: 2026
+  url: "https://openreview.net/forum?id=unVHJGkE8n"
