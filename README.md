@@ -5,6 +5,8 @@ Predicting model correctness with few observed labels for the
 
 **Accepted technical report · PAIEC at NeurIPS 2026 · November 2026**
 
+Selected for poster presentation.
+
 Gioia Zheng. [*Fixed Shrinkage for Predictive AI Evaluation with Few Observed Labels*](https://openreview.net/forum?id=unVHJGkE8n).
 
 This is an accepted PAIEC competition technical report, not a NeurIPS
