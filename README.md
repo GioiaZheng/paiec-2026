@@ -3,6 +3,10 @@
 Predicting model correctness with few observed labels for the
 [NeurIPS 2026 Predictive AI Evaluation Competition](https://aims.stanford.edu/competition).
 
+**Accepted technical report · PAIEC at NeurIPS 2026 · November 2026**
+
+Gioia Zheng. [*Fixed Shrinkage for Predictive AI Evaluation with Few Observed Labels*](https://openreview.net/forum?id=unVHJGkE8n).
+
 The submitted method uses fixed Beta(1,1) shrinkage:
 `(successes + 1) / (labels + 2)`, with random label acquisition.
 Local experiments examine its small-budget gains and low-success bias.
