@@ -1,0 +1,3 @@
+# Optional: drawing the plot and checking the compiled PDF.
+reportlab==4.4.9
+pypdf==6.21.4

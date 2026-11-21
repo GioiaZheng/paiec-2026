@@ -1,0 +1,18 @@
+{
+  "status": "POST_REVIEW_DESCRIPTIVE_ANALYSIS",
+  "specified_on": "2026-11-21",
+  "predictor_changed": false,
+  "seed": 20261121,
+  "bootstrap_replicates": 20000,
+  "interval": "percentile 2.5 and 97.5; linear interpolation",
+  "budgets": [0, 1, 3, 7, 15, 31],
+  "weights": [0.1, 0.2, 0.2, 0.2, 0.2, 0.1],
+  "primary_runs": ["pilot-20261016T094633259270Z", "pilot-20261016T101819880854Z", "pilot-20261016T103126523131Z"],
+  "other_runs": ["pilot-20261016T101838176075Z", "pilot-20261016T113704386894Z"],
+  "baseline": "Table 1: coding guarded, BertaQA item, REAL item; all 145 eligible pairs",
+  "weaker": "Table 3: coding guarded, BertaQA source, REAL item, FinanceBench item; all 161 eligible pairs",
+  "resampling": "Average the same three acquisition seeds within each pair first. Resample paired deltas within each benchmark at fixed counts. Also resample whole benchmark panels, retaining all pairs and recomputing the equal-pair mean.",
+  "calibration": "Exact discrete prediction categories at budgets 1 and 3; equal weight per pair and seed, equal response weight within each evaluation pool; no fitted bins or recalibration.",
+  "sensitivity": "Coding guarded: all 113 pairs and 85 size-compatible pairs. Reweight below-0.1 evaluation-success stratum to fractions 0, .25, .5, .75, 1, preserving within-stratum equal pair weights. Inspect all win/loss reversals with bins [0,.1),[.1,.2),[.2,.4),[.4,.6),[.6,1].",
+  "limits": ["Not a new holdout or predictor-selection experiment", "Pair bootstrap assumes exchangeability within benchmarks; shared questions and related models violate full independence", "Four or five benchmark panels do not establish population coverage", "All results condition on the saved splits and recorded outcomes", "Do not truncate BertaQA groups to mimic a kit that requires complete groups"]
+}

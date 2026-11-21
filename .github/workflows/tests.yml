@@ -47,5 +47,12 @@ jobs:
       - name: Verify frozen experiment sources
         run: python reproduce_extensions.py --check-sources
 
+      - name: Check camera-ready diagnostics
+        run: |
+          python -m unittest discover -s reports/camera-ready/analysis -p test_analysis.py -v
+          python reports/camera-ready/analysis/analyze.py
+          python reports/camera-ready/build_report.py
+          git diff --exit-code -- reports/camera-ready/analysis/results.json reports/camera-ready/paiec_report.tex
+
       - name: Check baseline archives and interface
         run: python run_baseline.py

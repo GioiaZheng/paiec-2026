@@ -40,7 +40,9 @@ These checks use synthetic inputs; no dataset, GPU or API is needed.
 - `configs/`, `results/`, `docs/`: protocols, aggregate results and methodology.
 - `reproduce_extensions.py`: rebuilds the follow-up experiments in a new local workspace.
 
-The report uses [code revision `d2d3e3c`](https://github.com/GioiaZheng/paiec-2026/tree/d2d3e3c1e803880f4918f2f8065616b513731a40).
+The original experiments use [code revision `d2d3e3c`](https://github.com/GioiaZheng/paiec-2026/tree/d2d3e3c1e803880f4918f2f8065616b513731a40).
+[Camera-ready diagnostics](https://github.com/GioiaZheng/paiec-2026/releases/tag/camera-ready-2026-11-21)
+add paired intervals and calibration analysis using the existing public results.
 Public results come from released training benchmarks; raw data and private
 CodaBench feedback stay local under the [competition's sharing rules](https://aims.stanford.edu/competition).
 
