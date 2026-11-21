@@ -1,0 +1,20 @@
+{
+  "source": "https://media.neurips.cc/Conferences/NeurIPS2026/Formatting_Instructions_For_NeurIPS_2026.zip",
+  "linked_from": "https://neurips.cc/Conferences/2026/CallForPapers",
+  "downloaded": "2026-10-16",
+  "archive_sha256": "82473931e3ef710fcd3f4a8cd4119b9de32e56825f90f9e5a6d55f2d01b817d9",
+  "style_sha256": "c3fc2894e83d2517ca18b66741d6c595986d97957dc08ec08bb2125a7ec4555a",
+  "style_modified": false,
+  "local_dependencies": {
+    "environ": {
+      "source": "https://mirrors.ctan.org/install/macros/latex/contrib/environ.tds.zip",
+      "archive_sha256": "da010dfadf66f1977c0d806c4c4669de184ab7f93e240a6767d57761763272b8",
+      "style_sha256": "2efd7043a5a2ec8d495bd7575408b118ba737b9303259cffa74572d28b0da608"
+    },
+    "trimspaces": {
+      "source": "https://mirrors.ctan.org/install/macros/latex/contrib/trimspaces.tds.zip",
+      "archive_sha256": "282f572486f94c45531068a3ef55d671c70fa136ecd8027f39e61b437818bbbb",
+      "style_sha256": "8e9907a5787d119339d60775c68d4a42e84f0b3993acf567600440dd161c52f8"
+    }
+  }
+}

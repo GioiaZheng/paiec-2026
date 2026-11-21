@@ -1,0 +1,4 @@
+# Preserve archived bytes, including the original template and submitted source.
+* -text
+*.pdf binary
+*.zip binary
